@@ -9,30 +9,17 @@ function convertToRoman(num) {
       6:['I', 1]
     };
 
-	let ans="";
-	for(let i=0;i<obj.length;i++){
-		let[roman,val]=obj[i];
-		while(num>=val){
-			ans+=roman;
-			num-=val;
-		}
-		if(i%2==0  &&  i<obj.length-2){
-			let next_val = obj[i+2][1];
-			if(nums>=val-next_val){
-				ans+=obj[i+2][0]+roman;
-				num-=val-next_val;
-			}
-		}
-		else if(i%2==1 && i<obj.length-1){
-			let next_val=obj[i+1][1];
-			if(nums>=val-next_val){
-				ans+=obj[i+1][0]+roman;
-				num-=val-next_val;
-			}
-		}
-	}
-	return ans;
+	let ans = "";
 
+  for (let i = 0; i < obj.length; i++) {
+    let [roman, val] = obj[i];
+    while (num >= val) {
+      ans += roman;
+      num -= val;
+    }
+  }
+
+  return ans;
   //your code here
 
 }
