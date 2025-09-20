@@ -13,9 +13,25 @@ function convertToRoman(num) {
 
   for (let i = 0; i < obj.length; i++) {
     let [roman, val] = obj[i];
+
     while (num >= val) {
       ans += roman;
       num -= val;
+    }
+
+    if (i % 2 === 0 && i < obj.length - 2) { 
+      let next_val = obj[i + 2][1]; 
+      if (num >= val - next_val) { 
+        ans += obj[i + 2][0] + roman; 
+        num -= val - next_val; 
+      } 
+    } 
+    else if (i % 2 === 1 && i < obj.length - 1) { 
+      let next_val = obj[i + 1][1]; 
+      if (num >= val - next_val) { 
+        ans += obj[i + 1][0] + roman; 
+        num -= val - next_val; 
+      } 
     }
   }
 
